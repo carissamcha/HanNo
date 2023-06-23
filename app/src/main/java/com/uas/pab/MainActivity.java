@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                             builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    deleteUnggah("6495403fe35880e5ca6a691d");
+                                    deleteUnggah("64953cc201c8aea915a3d8c9");
                                     Toast.makeText(MainActivity.this, "Unggah berhasil dihapus!" + id, Toast.LENGTH_SHORT).show();
                                 }
                             });
