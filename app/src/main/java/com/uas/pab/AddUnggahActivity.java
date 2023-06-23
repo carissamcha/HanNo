@@ -40,7 +40,7 @@ public class AddUnggahActivity extends AppCompatActivity {
 
                 if (bolehUnggah) {
                     String userId = Utilities.getValue(AddUnggahActivity.this, "xUserId");
-                    addUnggah(content, album, tahun, "64953cc201c8aea915a3d8c9");
+                    addUnggah(content, album, tahun, userId);
 
                 }
             }

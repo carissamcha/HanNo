@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -25,9 +26,12 @@ public class UpdateUnggahActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         unggah = getIntent().getParcelableExtra("EXTRA_DATA");
-        String id = unggah.getId();
+        String _id = unggah.getid();
+        Log.d("UpdateUnggahActivity", "ID Unggahan: " + _id);
 
         binding.etContent.setText(unggah.getContent());
+        binding.etImage2.setText(unggah.getTahun());
+        binding.etImage.setText(unggah.getAlbum());
         binding.btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,16 +47,16 @@ public class UpdateUnggahActivity extends AppCompatActivity {
                 }
 
                 if (bolehUpdate) {
-                    updateUnggah("64953cc201c8aea915a3d8c9", content, album, tahun);
+                    updateUnggah(_id, content, album, tahun);
                 }
             }
         });
     }
 
-    private void updateUnggah(String id, String content, String album, String tahun) {
+    private void updateUnggah(String _id, String content, String album, String tahun) {
         binding.progressBar.setVisibility(View.VISIBLE);
         APIService api = Utilities.getRetrofit().create(APIService.class);
-        Call<ValueNoData> call = api.updateUnggah(id, content, album, tahun);
+        Call<ValueNoData> call = api.updateUnggah(_id, content, album, tahun);
         call.enqueue(new Callback<ValueNoData>() {
             @Override
             public void onResponse(Call<ValueNoData> call, Response<ValueNoData> response) {

@@ -73,12 +73,13 @@ public class LoginActivity extends AppCompatActivity {
                     if (success == 1) {
                         User user = response.body().getData();
                         Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
-                        Utilities.setValue(LoginActivity.this, "xUserId", user.getUser_id());
+                        Utilities.setValue(LoginActivity.this, "xUserId", user.get_id());
                         Utilities.setValue(LoginActivity.this, "xUsername", username);
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
                         finish();
-                        Log.d("LoginActivity", "onResponse: " + user.getUser_id());
+                        Log.d("LoginActivity", "ambil user id: " + user.get_id());
+                        Log.d("LoginActivity", "Stored xUserId: " + Utilities.getValue(LoginActivity.this, "xUserId"));
                     } else {
                         Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
                     }

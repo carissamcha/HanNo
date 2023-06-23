@@ -84,7 +84,7 @@ public class RegisterActivity extends AppCompatActivity {
                     if (success == 1) {
                         User user = response.body().getData();
                         Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_SHORT).show();
-                        Utilities.setValue(RegisterActivity.this, "xUserId", user.getUser_id());
+                        Utilities.setValue(RegisterActivity.this, "xUserId", user.get_id());
                         Utilities.setValue(RegisterActivity.this, "xUsername", username);
                         Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                         startActivity(intent);

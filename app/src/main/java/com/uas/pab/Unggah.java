@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Unggah implements Parcelable {
-    private String _id;
+    private String id;
     private String content;
 
     private String album;
@@ -16,7 +16,7 @@ public class Unggah implements Parcelable {
     private String username;
 
     protected Unggah(Parcel in) {
-        _id = in.readString();
+        id = in.readString();
         content = in.readString();
         album = in.readString();
         tahun = in.readString();
@@ -28,7 +28,7 @@ public class Unggah implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(_id);
+        dest.writeString(id);
         dest.writeString(content);
         dest.writeString(album);
         dest.writeString(tahun);
@@ -55,12 +55,12 @@ public class Unggah implements Parcelable {
         }
     };
 
-    public String getId() {
-        return _id;
+    public String getid() {
+        return id;
     }
 
-    public void setId(String id) {
-        this._id = id;
+    public void set_id(String id) {
+        this.id = id;
     }
 
     public String getContent() {

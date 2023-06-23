@@ -36,11 +36,11 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-//        if (!Utilities.checkValue(MainActivity.this, "xUserId")) {
-//            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-//            startActivity(intent);
-//            finish();
-//        }
+        if (!Utilities.checkValue(MainActivity.this, "xUserId")) {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
         unggahViewAdapter = new UnggahViewAdapter();
         binding.rvUnggah.setLayoutManager(new LinearLayoutManager(this));
@@ -61,15 +61,14 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(intent);
                             return true;
                         } else if (idMenu == R.id.action_delete) {
-                            String id = unggah.getId();
+                            String id = unggah.getid();
                             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                             builder.setTitle("Konfirmasi");
                             builder.setMessage("Yakin ingin menghapus unggah '" + data.get(position).getContent() + "' ?");
                             builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    deleteUnggah("64953cc201c8aea915a3d8c9");
-                                    Toast.makeText(MainActivity.this, "Unggah berhasil dihapus!" + id, Toast.LENGTH_SHORT).show();
+                                    deleteUnggah(id);
                                 }
                             });
                             builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
